@@ -10,14 +10,14 @@ import com.test.emp.entity.EmployeeAttendance;
   
 @Controller  
 public class EmployeeController {  
-    @RequestMapping("/bookingForm")  
+    @RequestMapping("/registrationForm")  
 public String bookingForm(Model model)  
 {  
       //create a reservation object   
     	Employee res=new Employee();  
       //provide reservation object to the model   
     model.addAttribute("booking", res);  
-    return "booking-page";  
+    return "register-page";  
 }  
 @PostMapping("/submitForm")  
 // @ModelAttribute binds form data to the object  

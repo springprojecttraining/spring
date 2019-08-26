@@ -8,6 +8,11 @@
 <body>  
     <form:form action="submitForm" modelAttribute="booking" method="POST">  
         <table>
+                <tr>
+                    <td><form:label path="employee_id">Employee id:</form:label></td>
+                    <td><form:input path="employee_id"/></td>
+                </tr> 
+                
                <tr>
                     <td><form:label path="employee_name">Employee name:</form:label></td>
                     <td><form:input path="employee_name"/></td>
