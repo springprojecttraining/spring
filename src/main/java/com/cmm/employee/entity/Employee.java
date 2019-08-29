@@ -1,4 +1,4 @@
-package com.test.emp.entity;
+package com.cmm.employee.entity;
 
 import java.sql.Timestamp;
 import java.util.Set;
@@ -13,62 +13,56 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import org.springframework.ui.Model; 
-import java.util.List;  
 import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.test.emp.entity.EmployeeAttendance;
-
 @Entity
-@Table( name = "employee", uniqueConstraints = {
-		@UniqueConstraint(columnNames = "employee_id") })
+@Table(name = "employee")
 public class Employee {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "employee_id", unique = true, nullable = false)
-	public int employee_id;
-	
-	@OneToMany(mappedBy="employee")
-	private Set<EmployeeAttendance> employeeAttendance;
+	@Column(name = "id", unique = true, nullable = false)
+	public int id;
 
-	@Column(name = "employee_no")
-	public String employee_no;
-	
+	@OneToMany(mappedBy = "employee")
+	private Set<EmployeeAttendance> employeeAttendance;
+	@Column(name = "employee_id")
+	public String employee_id;
+
 	@Column(name = "employee_name")
 	public String employee_name;
-	
+
 	@Column(name = "date_of_birth")
 	public String date_of_birth;
-	
+
 	@Column(name = "age")
 	public int age;
-		
+
 	@Column(name = "gender")
 	public String gender;
-	
+
 	@Column(name = "note")
 	public String note;
-	
+
 	@Column(name = "del_flg")
 	public int del_flg;
-	
+
 	@Column(name = "password")
 	public String password;
-	
+
 	@Column(name = "created_date")
 	public Timestamp created_date;
-	
+
 	@Column(name = "updated_date")
 	public Timestamp updated_date;
 
-	public int getEmployee_id() {
-		return employee_id;
+	public int getId() {
+		return id;
 	}
 
-	public void setEmployee_id(int employee_id) {
-		this.employee_id = employee_id;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Set<EmployeeAttendance> getEmployeeAttendance() {
@@ -79,12 +73,12 @@ public class Employee {
 		this.employeeAttendance = employeeAttendance;
 	}
 
-	public String getEmployee_no() {
-		return employee_no;
+	public String getEmployee_id() {
+		return employee_id;
 	}
 
-	public void setEmployee_no(String employee_no) {
-		this.employee_no = employee_no;
+	public void setEmployee_id(String employee_id) {
+		this.employee_id = employee_id;
 	}
 
 	public String getEmployee_name() {
@@ -158,5 +152,6 @@ public class Employee {
 	public void setUpdated_date(Timestamp updated_date) {
 		this.updated_date = updated_date;
 	}
+
 	
 }

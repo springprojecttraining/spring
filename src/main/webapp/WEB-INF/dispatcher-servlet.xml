@@ -1,35 +1,56 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+     xmlns:tx="http://www.springframework.org/schema/tx"  
+    xsi:schemaLocation="  
+        http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://www.springframework.org/schema/context  
+        http://www.springframework.org/schema/context/spring-context.xsd  
+        http://www.springframework.org/schema/mvc  
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+         http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd"> 
 
-		<!-- -->
+	<!-- Enable MVC -->
+	<mvc:annotation-driven />
+
+	<context:annotation-config />
+
+
+	<!-- Enable package components -->
 	<context:component-scan
-		base-package="com.test.emp" />
+		base-package="com.cmm.employee" />
 
-	<!-- -->
-	<bean id="viewResolver"
+	<!-- View resolver -->
+	<bean id="jspViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix">
-			<value>/WEB-INF/views/</value>
-		</property>
-		<property name="suffix">
-			<value>.jsp</value>
-		</property>
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- database config -->
+	<!-- Static resources -->
+	<mvc:resources location="/resources/"
+		mapping="/resources/**" cache-period="31556926" />
+	<!-- <mvc:resources mapping="/resources/**" location="/resources, classpath:/static/" 
+		cache-period="31556926" /> -->
+	<!-- <mvc:resources mapping="/resources/**" location="/resources, classpath:/static/" 
+		/> -->
+
+	<!-- Datasource -->
+	<!-- https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/data-access.html -->
 	<context:property-placeholder
 		location="classpath:persistence-mysql.properties" />
+
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan"
-			value="com.test.emp.entity" />
+			value="com.cmm.employee.entity" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
@@ -47,9 +68,108 @@
 		<property name="password" value="${jdbc.pass}" />
 	</bean>
 
+	<tx:annotation-driven
+		transaction-manager="txManager" />
+
 	<bean id="txManager"
 		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-		
+
+
+	<!-- this is localization -->
+	<!-- Locale interceptor -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="classpath:/message" />
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+		<property name="defaultLocale" value="en" />
+		<property name="cookieName" value="AppLocaleCookie" />
+		<property name="cookieMaxAge" value="3600" />
+	</bean>
+
+	<mvc:interceptors>
+		<bean
+			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="locale" />
+		</bean>
+	</mvc:interceptors>
+
+
+	<!-- Theme -->
+	<bean
+		class="org.springframework.ui.context.support.ResourceBundleThemeSource">
+		<property name="basenamePrefix" value="themes."></property>
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+	<bean id="themeResolver"
+		class="org.springframework.web.servlet.theme.CookieThemeResolver">
+		<property name="defaultThemeName" value="default" />
+		<property name="cookieName" value="AppThemeCookie" />
+		<property name="cookieMaxAge" value="3600" />
+	</bean>
+	<mvc:interceptors>
+		<bean
+			class="org.springframework.web.servlet.theme.ThemeChangeInterceptor">
+			<property name="paramName" value="theme" />
+		</bean>
+	</mvc:interceptors>
+
+	
+	<!-- WAY-I -->
+	<!-- ContentNegotiatingViewResolver -->
+	<!-- // View resolver that delegates to other view resolvers based on the 
+		// content type -->
+	<!--All configuration now done by manager - since Spring V3.2-->
+	<!-- <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="contentNegotiationManager" ref="cnManager" />
+	</bean> -->
+	
+	<!-- // Setup a simple strategy: // 1. Only path extension taken into account, 
+		Accept headers ignored. // 2. Return HTML by default when not sure. -->
+	<!-- <bean id="cnManager"
+		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+		<property name="favorPathExtension" value="false" />
+		<property name="favorParameter" value="true" />
+		<property name="parameterName" value="mediaType" />
+		<property name="ignoreAcceptHeader" value="true" />
+		<property name="defaultContentType" value="text/html" />
+		<property name="mediaTypes">
+			<map>
+				<entry key="xml" value="application/xml" />
+				<entry key="json" value="application/json" />
+				<entry key="xls" value="application/vnd.ms-excel" />
+			</map>
+		</property>
+	</bean> -->
+	
+	
+	<!-- WAY-II -->
+	<mvc:annotation-driven content-negotiation-manager="contentNegotiationManager" />
+	<bean id="contentNegotiationManager"
+		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+		<property name="favorPathExtension" value="false" />
+		<property name="favorParameter" value="true" />
+		<property name="parameterName" value="mediaType" />
+		<property name="ignoreAcceptHeader" value="true" />
+		<property name="defaultContentType" value="text/html" />
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+				<entry key="xml" value="application/xml" />
+				<entry key="xls" value="application/vnd.ms-excel" />
+			</map>
+		</property>
+	</bean>
+	
+	
+	<!-- https://docs.spring.io/spring/docs/4.2.7.RELEASE/spring-framework-reference/html/view.html -->
+	<bean id="pdfAndxmlResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+        <property name="basename" value="/WEB-INF/doc-views/views.xml"/>
+    </bean>
+	
 </beans>

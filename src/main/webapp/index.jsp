@@ -1,9 +1,11 @@
-<!DOCTYPE html>  
-<html>  
-<head>  
-    <title>Railway Registration Form</title>  
-</head>  
-<body>  
-<a href="registrationForm">Click here for reservation.</a>  
-</body>  
-</html>  
+<html>
+<head>
+    <title>Welcome</title>
+    <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css"
+        rel="stylesheet">
+</head>
+<body>
+	<a href="employeeInsert">Employee Insert</a> <br>
+	<a href="searchEmployee">Employee Search</a>		 
+</body>
+</html>
