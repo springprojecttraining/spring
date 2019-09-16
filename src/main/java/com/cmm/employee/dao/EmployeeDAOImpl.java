@@ -19,6 +19,8 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 	
 	public void saveEmployee(Employee theEmployee) {
         Session currentSession = sessionFactory.getCurrentSession();
+        
+        theEmployee.employee_id = "EMP000"+theEmployee.employee_id;
         currentSession.save(theEmployee);
     }
 	

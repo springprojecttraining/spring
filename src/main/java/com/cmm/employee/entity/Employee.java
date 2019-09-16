@@ -1,20 +1,21 @@
 package com.cmm.employee.entity;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "employee")
@@ -27,7 +28,7 @@ public class Employee {
 
 	@OneToMany(mappedBy = "employee")
 	private Set<EmployeeAttendance> employeeAttendance;
-	@Column(name = "employee_id")
+	@Column(name = "employee_id", nullable = false)
 	public String employee_id;
 
 	@Column(name = "employee_name")
@@ -51,8 +52,16 @@ public class Employee {
 	@Column(name = "password")
 	public String password;
 
-	@Column(name = "created_date")
-	public Timestamp created_date;
+//	@CreatedDate
+//    @Temporal(TemporalType.TIMESTAMP)
+//	@DateTimeFormat(pattern="dd.MM.yyyy hh:mm:ss")
+//    @Column(name = "created_date", nullable = false)
+//	public Date created_date;
+
+	@Column(name = "created_date", columnDefinition = "TIMESTAMP")
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+	private Date created_date;
 
 	@Column(name = "updated_date")
 	public Timestamp updated_date;
@@ -137,14 +146,6 @@ public class Employee {
 		this.password = password;
 	}
 
-	public Timestamp getCreated_date() {
-		return created_date;
-	}
-
-	public void setCreated_date(Timestamp created_date) {
-		this.created_date = created_date;
-	}
-
 	public Timestamp getUpdated_date() {
 		return updated_date;
 	}
@@ -153,5 +154,20 @@ public class Employee {
 		this.updated_date = updated_date;
 	}
 
-	
+	public Date getCreated_date() {
+		return created_date;
+	}
+
+	public void setCreated_date(Date created_date) {
+		this.created_date = created_date;
+	}
+
+//	public Date getCreated_date() {
+//		return created_date;
+//	}
+//
+//	public void setCreated_date(Date created_date) {
+//		this.created_date = created_date;
+//	}
+
 }

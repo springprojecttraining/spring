@@ -171,5 +171,7 @@
 	<bean id="pdfAndxmlResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
         <property name="basename" value="/WEB-INF/doc-views/views.xml"/>
     </bean>
-	
+    
+    <!-- for boostrap -->
+	<mvc:resources mapping="/webjars/**" location="/webjars/"/>
 </beans>

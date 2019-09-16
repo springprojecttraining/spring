@@ -28,6 +28,7 @@ public class EmployeeInsertController {
     public String showFormForAdd(Model theModel) {
         Employee theEmployee = new Employee();
         theModel.addAttribute("employee", theEmployee);
+        
         return "EMP0001";
     }
 
@@ -43,20 +44,20 @@ public class EmployeeInsertController {
         return "EMP0002";
     }
     
-//    @RequestMapping(value = "/searchEmployee")
-//    public ModelAndView listEmployee(ModelAndView model) throws IOException {
-//        List<Employee> theEmployees = employeeInsertService.getAllEmployees();
-//        model.addObject("listEmployee", theEmployees);
-//        model.setViewName("EMP0002");
-//        return model;
-//    }
+    @RequestMapping(value = "/searchEmployee")
+    public ModelAndView listEmployee(ModelAndView model) throws IOException {
+        List<Employee> theEmployees = employeeInsertService.getAllEmployees();
+        model.addObject("listEmployee", theEmployees);
+        model.setViewName("EMP0002");
+        return model;
+    }
     
-//    @RequestMapping(value = "/editEmployee", method = RequestMethod.GET)
-//    public ModelAndView editContact(HttpServletRequest request) {
-//        int employeeId = Integer.parseInt(request.getParameter("id"));
-//        Employee employee = employeeInsertService.getEmployee(employeeId);
-//        ModelAndView model = new ModelAndView("EMP0001");
-//        model.addObject("employee", employee);
-//        return model;
-//    }
+    @RequestMapping(value = "/editEmployee", method = RequestMethod.GET)
+    public ModelAndView editContact(HttpServletRequest request) {
+        int employeeId = Integer.parseInt(request.getParameter("id"));
+        Employee employee = employeeInsertService.getEmployee(employeeId);
+        ModelAndView model = new ModelAndView("EMP0001");
+        model.addObject("employee", employee);
+        return model;
+    }
     }
