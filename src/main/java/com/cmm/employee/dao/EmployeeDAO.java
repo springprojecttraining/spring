@@ -10,5 +10,7 @@ public interface EmployeeDAO {
 
 	public List<Employee> getAllEmployees();
 
+	public Employee getEmp(int id);
+
 
 }

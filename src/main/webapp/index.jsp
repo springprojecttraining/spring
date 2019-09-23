@@ -7,9 +7,11 @@
 	rel="stylesheet">
 </head>
 <body>
-	<a href="employeeInsert">Employee Insert</a>
+	<a href="login">Login</a>
 	<br>
-	<a href="searchEmployee">Employee Search</a>
+	<a href="Menu">Menu</a>
+	<br>
+	
 	<script src="webjars/jquery/3.4.1/jquery.min.js"></script>
 	<script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>

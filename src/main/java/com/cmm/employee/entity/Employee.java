@@ -1,6 +1,6 @@
 package com.cmm.employee.entity;
 
-import java.sql.Timestamp;
+
 import java.util.Date;
 import java.util.Set;
 
@@ -52,19 +52,17 @@ public class Employee {
 	@Column(name = "password")
 	public String password;
 
-//	@CreatedDate
-//    @Temporal(TemporalType.TIMESTAMP)
-//	@DateTimeFormat(pattern="dd.MM.yyyy hh:mm:ss")
-//    @Column(name = "created_date", nullable = false)
-//	public Date created_date;
+
 
 	@Column(name = "created_date", columnDefinition = "TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	private Date created_date;
 
-	@Column(name = "updated_date")
-	public Timestamp updated_date;
+	@Column(name = "updated_date", columnDefinition = "TIMESTAMP")
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+	private Date updated_date;
 
 	public int getId() {
 		return id;
@@ -146,13 +144,7 @@ public class Employee {
 		this.password = password;
 	}
 
-	public Timestamp getUpdated_date() {
-		return updated_date;
-	}
-
-	public void setUpdated_date(Timestamp updated_date) {
-		this.updated_date = updated_date;
-	}
+	
 
 	public Date getCreated_date() {
 		return created_date;
@@ -161,6 +153,16 @@ public class Employee {
 	public void setCreated_date(Date created_date) {
 		this.created_date = created_date;
 	}
+
+	public Date getUpdated_date() {
+		return updated_date;
+	}
+
+	public void setUpdated_date(Date updated_date) {
+		this.updated_date = updated_date;
+	}
+	
+	
 
 //	public Date getCreated_date() {
 //		return created_date;
