@@ -83,6 +83,14 @@ public class EmployeeInsertController {
 		emplist.setViewName("EMP0002");
 		return emplist;
 	}
+	
+	@GetMapping("/update/{id}")
+	public String EditInsertForm(Model theModel) {
+		Employee theEmployee = new Employee();
+		theModel.addAttribute("employee", theEmployee);
+		return "EMP0001";
+	}
+	
 
 
 }

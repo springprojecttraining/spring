@@ -102,13 +102,11 @@
 			</tr>
 
 			<c:forEach var="employee" items="${listEmployee}">
-				<c:url var="update" value="employee/editEmployee">
-					<c:param name="id" value="${employee.id }" />
-				</c:url>
+	
 				<tr>
 					<td>${employee.id}</td>
 					<td><input type="checkbox"></td>
-					<td><a href="update">Edit</a></td>
+					<td><a href="update/${employee.id}">Edit</a></td>
 					<td></td>
 					<td>${employee.employee_name}</td>
 					<td>${employee.date_of_birth}</td>
@@ -121,6 +119,8 @@
 
 
 	</div>
+	
+	
 
 
 
