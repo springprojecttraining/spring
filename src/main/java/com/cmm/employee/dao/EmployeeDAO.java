@@ -10,7 +10,17 @@ public interface EmployeeDAO {
 
 	public List<Employee> getAllEmployees();
 
-	public Employee getEmp(int id);
+	public Employee getEmployee(int employee_id);
+	
+	public Employee getEmployeeBy(String employee_id);
+
+	public void updateEmployee(Employee theEmployee);
+
+	public void deleteEmployee(int id);
+
+	public Object getEmployeeName(String employee_name);
+
+	public List<Employee> getEmployeeNameForSearch(String employee_name);
 
 
 }

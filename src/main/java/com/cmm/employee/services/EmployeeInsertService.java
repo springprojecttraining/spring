@@ -12,9 +12,5 @@ public interface EmployeeInsertService {
 
 	public Employee getEmployee(int employeeId);
 
-	public Employee getEmp(int id);
-
-
-
 	
 }

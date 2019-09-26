@@ -25,16 +25,13 @@ public class EmployeeInsertServiceImpl implements EmployeeInsertService{
         return employeeDAO.getAllEmployees();
     }
 	
-	    @Transactional
-		public Employee getEmp(int id) {
-		 return employeeDAO.getEmp(id);
-		}
-	    @Transactional
-		public Employee getEmployee(int employeeId) {
-			// TODO Auto-generated method stub
-			return null;
-		}
+	@Transactional
+	public Employee getEmployee(int employeeId) {
+		// TODO Auto-generated method stub
 		
+		return null;
+	}
+	
 //	@Transactional
 //	public Employee getEmployee(int employeeId) {
 //        return employeeDAO.getEmployee(employeeId);

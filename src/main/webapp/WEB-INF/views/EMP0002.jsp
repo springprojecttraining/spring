@@ -12,45 +12,10 @@
 <link
 	href="<c:url value="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />"
 	rel="stylesheet">
+	<link href="<c:url value="/resources/css/EMP0002.css" />" rel="stylesheet">
 
 </head>
-<style>
-.container{
-   
-    padding-top: 2%;
-    padding-left: 0%;
-    padding-right: 0%;
-    padding-bottom: 0%;  
 
-}
-
-table tr th{
-    border-top: 1px solid black;
-    background-color: #e2efda;
-    color: black;
-    text-align: center;    
-    }
-
-table, tr, th, td{     
-    border: 1px solid black;
-    border-collapse: collapse;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-        
-}
-
- tr:nth-child(odd) {
-     background-color: #dddddd;
-}
-
-.EmployeeTable{
-    
-    background-color: white;
-
-}
-
-</style>
 <body>
 	<div class="container">
 
@@ -98,12 +63,12 @@ table, tr, th, td{
    
 			<div class="form-group row">
      <form:label path="gender" class="col-form-label col-sm-2">Gender</form:label>
-      <div class="col-sm-3">
-        <form:checkbox path="gender" value="Male"/>Male
+      <div class="col-sm-10">
+        <form:checkbox path="gender" value="Male"/>Male&nbsp;&nbsp;
       
-          <form:checkbox path="gender" value="Female"/>Female
+          <form:checkbox path="gender" value="Female"/>Female&nbsp;&nbsp;
        
-          <form:checkbox path="gender" value="Custom"/>Custom
+          <form:checkbox path="gender" value="Custom"/>Custom&nbsp;&nbsp;
         
      </div>
    </div>

@@ -144,8 +144,6 @@ public class Employee {
 		this.password = password;
 	}
 
-	
-
 	public Date getCreated_date() {
 		return created_date;
 	}
@@ -161,15 +159,6 @@ public class Employee {
 	public void setUpdated_date(Date updated_date) {
 		this.updated_date = updated_date;
 	}
-	
-	
 
-//	public Date getCreated_date() {
-//		return created_date;
-//	}
-//
-//	public void setCreated_date(Date created_date) {
-//		this.created_date = created_date;
-//	}
 
 }
