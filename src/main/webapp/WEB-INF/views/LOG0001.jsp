@@ -11,22 +11,42 @@
 <link href="<c:url value="/resources/css/LOG0001.css" />" rel="stylesheet">
 
 </head>
-  <body>
-   
-      
-		
-           
-       <div class="col-sm-4">
-       <form:form action="" method="post" modelAttribute="emplogin">
-         
-         
-         </form:form>
-        </div>
-    
  
+  <body>
 
- <script src="<c:url value="/webjars/jquery/3.4.1/jquery.min.js" />"></script>
+       <div class="d-flex justify-content-center login-box" >
+       <div class="col-sm-4">
+      <form:form action="" method="post" modelAttribute="emplogin">
+            <div class="form-group row">
+            <form:label path="employee_id" class="col-sm-4 col-form-label form-control-sm">Employee ID(<span class ="star">*</span>)</form:label>
+            
+              <div class="col-sm-6">
+                <form:input path="employee_id" class="form-control form-control-sm" />
+              </div>
+            </div>
+
+            <div class="form-group row">
+            <form:label path="employee_id" class="col-sm-4 col-form-label form-control-sm">Password(<span class ="star">*</span>)</form:label>
+              <div class="col-sm-6">
+               <form:password showPassword="true" path="password" class="form-control form-control-sm"></form:password>
+              </div>
+            </div>
+
+              <div class="form-group row">
+              <form:label path="employee_id" class="col-sm-4 col-form-label form-control-sm"></form:label>
+                <div class="col-sm-6"> 
+                <input type="button" onclick="/" value="Log in" id="button">                   
+                   
+                     <input type="button" onclick="/" value="Cancel" id="button">  
+                 
+                </div>
+                </div>
+       </form:form>
+        </div>
+    </div>
+   
+
+  <script src="<c:url value="/webjars/jquery/3.4.1/jquery.min.js" />"></script>
 	<script src="<c:url value="/webjars/bootstrap/4.3.1/js/bootstrap.min.js" />"></script>
-		
-		</body>
+  </body>
 		</html>

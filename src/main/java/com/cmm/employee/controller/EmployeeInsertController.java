@@ -79,7 +79,6 @@ public class EmployeeInsertController {
 		List<Employee> theEmployees = employeeInsertService.getAllEmployees();
 		emplist.addObject("listEmployee", theEmployees);
 		emplist.addObject("empSearch", new Employee());
-		
 		emplist.setViewName("EMP0002");
 		return emplist;
 	}
