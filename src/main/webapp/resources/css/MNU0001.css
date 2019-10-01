@@ -1,0 +1,51 @@
+html,body{
+		height: 100%;
+	}
+	ul{
+		list-style-type: none;
+		padding: 0;
+
+		background-color: #e2efda;
+		overflow: hidden;
+		border:2px solid black;
+
+	}
+	ul li{
+		float: left;
+		height: 60px;
+		margin: 0;
+		padding:0 7px;
+	}
+	ul li a{
+		display: block;
+		width: 100%;
+		padding: 0;
+		color:black;
+	}
+	#sidenav{
+		width: 200px;
+		background-color: #e2efda;
+		height: 100%;
+		margin-top: -17px;
+		margin-left: 1px;
+		border:2px solid black;
+		position: absolute;
+	}
+	#sidenav li{
+		display: block;
+		padding: 7px;
+	}
+	#content{
+		margin-top: -17px;
+		height: 100%;
+		padding: 10px 0 10px 210px;
+	}
+	table, tr, th, td{
+		border: 1px solid black;
+	}
+	table tr th{
+		background-color: #9bc2e6;
+		color: black;
+		text-align: center;
+
+	}

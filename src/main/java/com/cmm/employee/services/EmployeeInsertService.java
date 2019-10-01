@@ -12,5 +12,9 @@ public interface EmployeeInsertService {
 
 	public Employee getEmployee(int employeeId);
 
+	public Employee delete(long id);
+
+
+
 	
 }

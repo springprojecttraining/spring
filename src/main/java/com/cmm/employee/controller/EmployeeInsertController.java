@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cmm.employee.entity.Employee;
@@ -83,13 +86,38 @@ public class EmployeeInsertController {
 		return emplist;
 	}
 	
-	@GetMapping("/update/{id}")
-	public String EditInsertForm(Model theModel) {
-		Employee theEmployee = new Employee();
-		theModel.addAttribute("employee", theEmployee);
-		return "EMP0001";
+	@RequestMapping(value = "/update",method = RequestMethod.GET)
+	public ModelAndView EditInsertForm(HttpServletRequest request) {
+		int employee = Integer.parseInt(request.getParameter("id"));
+		Employee Employee=employeeInsertService.getEmployee(employee);
+		 ModelAndView empeditform = new ModelAndView("EMP0001");
+		empeditform.addObject("employee",Employee);
+		return empeditform;
 	}
 	
+	
+	@PostMapping("/delete")
+	public String delete(@RequestParam("id") long id) {
+		employeeInsertService.delete(id);
+	    return "EMP0002";
+	}
+	
+	
+//	@GetMapping("/update")
+//	public String EditInsertForm(Model theModel) {
+//		Employee theEmployee = new Employee();
+//		theModel.addAttribute("employee", theEmployee);
+//		return "EMP0001";
+//	}
+	
+//	/* It displays object data into form for the given id.   
+//     * The @PathVariable puts URL data into variable.*/    
+//	@RequestMapping(value="/update}")    
+//    public String EditInsertForm(@PathVariable int id, Model m){    
+//		Employee theEmployee=employeeInsertService.getAllEmployees(id);    
+//        m.addAttribute("employee",theEmployee);  
+//        return "EMP0001";    
+//    }    
 
 
 }

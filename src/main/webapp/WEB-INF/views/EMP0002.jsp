@@ -74,15 +74,16 @@
    </div>
    
    <div>
-      <label class="col-sm-2 col-form-label"></label>  
+      <label class="col-sm-2 col-form-label"></label> 
+       
       <input class="btn btn-secondary" type="button" onclick="/" value="Search"> 
        <input class="btn btn-secondary" type="button" onclick="/" value="Cancel">     
-       <input class="btn btn-secondary" type="button" onclick="/" value="Delete"> 
+       <input class="btn btn-secondary" type="button" onclick="location.href='delete?id=${employee.id}'" value="Delete"> 
        <input class="btn btn-secondary" type="button" onclick="/" value="Excel">            
       <input class="btn btn-secondary" type="button" onclick="/" value="Report">    
     
   </div>
-			
+ 
 		</form:form>
 		<br>
 		<table border="1"
@@ -99,6 +100,7 @@
 				<th>Age</th>
 				<th>Gender</th>
 				<th>Note</th>
+				<th></th>
 			</tr>
 
 			<c:forEach var="employee" items="${listEmployee}">
@@ -106,13 +108,14 @@
 				<tr>
 					<td>${employee.id}</td>
 					<td><input type="checkbox"></td>
-					<td><a href="update/${employee.id}">Edit</a></td>
-					<td></td>
+					<td><a href="update?id=${employee.id}">Edit</a></td>
+					<td>${employee.employee_id}</td>
 					<td>${employee.employee_name}</td>
 					<td>${employee.date_of_birth}</td>
 					<td>${employee.age}</td>
 					<td>${employee.gender}</td>
 					<td>${employee.note}</td>
+					<td><a href="delete?id=${employee.id}">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</table>

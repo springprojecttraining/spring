@@ -10,7 +10,7 @@ import com.cmm.employee.dao.EmployeeDAO;
 import com.cmm.employee.entity.Employee;
 
 @Service
-public class EmployeeInsertServiceImpl implements EmployeeInsertService{
+public  class EmployeeInsertServiceImpl implements EmployeeInsertService{
 
 	@Autowired
 	 private EmployeeDAO employeeDAO;
@@ -29,8 +29,15 @@ public class EmployeeInsertServiceImpl implements EmployeeInsertService{
 	public Employee getEmployee(int employeeId) {
 		// TODO Auto-generated method stub
 		
-		return null;
+		return employeeDAO.getEmployee(employeeId);
 	}
+	
+	@Transactional
+	public Employee delete(long id) {
+		// TODO Auto-generated method stub
+		return employeeDAO.delete(id);
+	}
+	
 	
 //	@Transactional
 //	public Employee getEmployee(int employeeId) {

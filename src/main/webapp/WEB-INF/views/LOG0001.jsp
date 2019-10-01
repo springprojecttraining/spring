@@ -33,14 +33,13 @@
             </div>
 
               <div class="form-group row">
-              <form:label path="employee_id" class="col-sm-4 col-form-label form-control-sm"></form:label>
-                <div class="col-sm-6"> 
-                <input type="button" onclick="/" value="Log in" id="button">                   
-                   
-                     <input type="button" onclick="/" value="Cancel" id="button">  
-                 
-                </div>
-                </div>
+            <form:label path="" class="col-sm-4 col-form-label form-control-sm"></form:label>
+             
+                <div class="col-sm-6">
+               <input type="button" onclick="location.href='/Springteam2Project'" value="Login" id="button">
+                <input type="button" onclick="location.href='/Springteam2Project'" value="Cancel" id="button">
+              </div>
+             </div>
        </form:form>
         </div>
     </div>

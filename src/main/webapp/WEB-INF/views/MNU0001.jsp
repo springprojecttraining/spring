@@ -6,81 +6,26 @@
 <html>
 <head>
 
-	<title>MENU</title>
-	<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<style type="text/css">
-	html,body{
-		height: 100%;
-	}
-	ul{
-		list-style-type: none;
-		padding: 0;
+	<meta charset="ISO-8859-1">
+<link href="<c:url value="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/MNU0001.css" />" rel="stylesheet">
 
-		background-color: #e2efda;
-		overflow: hidden;
-		border:2px solid black;
-
-	}
-	ul li{
-		float: left;
-		height: 60px;
-		margin: 0;
-		padding:0 7px;
-	}
-	ul li a{
-		display: block;
-		width: 100%;
-		padding: 0;
-		color:black;
-	}
-	#sidenav{
-		width: 200px;
-		background-color: #e2efda;
-		height: 100%;
-		margin-top: -17px;
-		margin-left: 1px;
-		border:2px solid black;
-		position: absolute;
-	}
-	#sidenav li{
-		display: block;
-		padding: 7px;
-	}
-	#content{
-		margin-top: -17px;
-		height: 100%;
-		padding: 10px 0 10px 210px;
-	}
-	table, tr, th, td{
-		border: 1px solid black;
-	}
-	table tr th{
-		background-color: #9bc2e6;
-		color: black;
-		text-align: center;
-
-	}
-</style>
 </head>
 <body>
 	<ul>
-		<li style="opacity: 0;"><a href="#"></a></li>
+	
 		<li style="float:right;"><a href="/" style="color: #00b0f0;padding-right: 20px;text-align: left;"><span style="border-bottom: 1px solid #00b0f0;">Logout</span></a></li>
-		<li style="float: right;"><a href="#" style="text-decoration:none;">Employee ID : ${emp.employee_id} <br> Employee Name : ${emp.employee_name}</a></li>
+		<li style="float: right;"><a href="#" style="text-decoration:none;">Employee ID : ${employee.id} <br> Employee Name : ${employee_name}</a></li>
 	</ul>
 	<div id="sidenav">
-		<li><a href="employeeInsert">Employee Insert</a></li>
-		<li><a href="searchEmployee">Employee Search</a></li>
+	<a href="employeeInsert">Employee Insert</a>
+	<br>
+	<a href="searchEmployee">Employee Search</a>
 	</div>
 	<div id="content" style="">
 		<div class="row">
 			<div class="col-md-4" style="">
-			Employee Name : ${emp.employee_name}
+			Employee Name : ${employee.employee_name}
 			<div class="row">
 				<div class="col-sm-6">
 					IN<br>
@@ -129,7 +74,7 @@
 			</table>
 		</div>
 	</div>
-<script src="webjars/jquery/3.4.1/jquery.min.js"></script>
-<script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="<c:url value="/webjars/jquery/3.4.1/jquery.min.js" />"></script>
+	<script src="<c:url value="/webjars/bootstrap/4.3.1/js/bootstrap.min.js" />"></script>
 </body>
 </html>

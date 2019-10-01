@@ -15,8 +15,9 @@
 	<form:form action="saveEmployee" method="post" modelAttribute="employee">
 
 		<div class="container">
+		<form:hidden path="id" />
 			<div class="form-group row">
-				<form:hidden path="id" />
+				
 				<form:label path="employee_name" class="col-sm-2 col-form-label">Employee Name</form:label>
 				<div class="col-sm-3">
 					<form:input path="employee_name"
@@ -24,14 +25,38 @@
 
 				</div>
 			</div>
-			<div class="form-group row">
+			
+			<%
+					String pass = request.getParameter("id");
+						if (pass == null) {
+				%>
+				<div class="form-group row">
 				<form:label path="password" class="col-sm-2 col-form-label">Password ( <span class="star">*</span> )</form:label>
 
 				<div class="col-sm-2">
 
-					<form:password showPassword="true" path="password" class="form-control form-control-sm"></form:password>
+					<form:password showPassword="true" path="password" class="form-control form-control-sm" id="disablepassword"></form:password>
 				</div>
 			</div>
+				<%
+					} else {
+				%>
+				<div class="form-group row">
+					<form:label path="password" class="col-sm-2 col-form-label">Password ( <span class="star">*</span> )</form:label>
+					<div class="col-sm-2">
+						<form:password showPassword="true" path="password" class="form-control form-control-sm" id="password"></form:password>
+						</div>
+						 <div class="edit">
+						 <a id="editlink" onclick="enable()">Edit</a>
+												
+							</div>
+					
+				</div>
+					<%
+					}
+				%>
+				
+			
 			<div class="form-group row">
                 <form:label type="date" path="date_of_birth" class="col-sm-2 col-form-label" >Date of Birth</form:label>
 				
@@ -46,13 +71,11 @@
 				<form:label path="age" class="col-sm-2 col-form-label">Age</form:label>
 
 				<div class="col-sm-2">
-					<form:input path="age" class="form-control form-control-sm"
-						id="textbox" />
+				<form:input path="age" class="form-control form-control-sm"
+							id="textbox" disabled="true" />
+					
+				</div>
 
-				</div>
-				<div class="edit">
-					<a href="#">Edit</a>
-				</div>
 			</div>
 
 			<div class="row" >
@@ -77,16 +100,23 @@
 					<form:textarea path="note" class="form-group row" rows="4"
 						cols="30" />
 
+
+
 				</div>
 			</div>
 
+			
+			
 			<div class="col-sm-11">
-				<label for="inputPassword3" class="col-sm-2 col-form-label"></label>
-				<input type="submit" value="Save" id="button" /> 
-				<input type="button" onclick="/" value="Clear" id="button">
-					 <input type="button" onclick="location.href='/Springteam2Project'" value="Back" id="button">
-
-			</div>
+					<label for="button" class="col-sm-2 col-form-label"> </label>
+					
+						<input type="submit" value="Save" id="button" /> 
+						<input type="button" onclick="" value="Clear" id="button">
+						  <input type="button" onclick="location.href='/Springteam2Project/'" value="Back" id="button">
+						
+					
+				</div>
+				
 		</div>
 
 	</form:form>
@@ -94,4 +124,11 @@
 	<script src="<c:url value="/webjars/jquery/3.4.1/jquery.min.js" />"></script>
 	<script src="<c:url value="/webjars/bootstrap/4.3.1/js/bootstrap.min.js" />"></script>
 </body>
+<script>
+	 document.getElementById("editlink").style.cursor = "pointer";
+	 function enable(){
+		 document.getElementById('password').style.backgroundColor = "white";
+		 document.getElementById('password').style.pointerEvents = "auto";	 
+	 }
+</script>
 </html>
