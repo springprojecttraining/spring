@@ -35,7 +35,7 @@
 
 				<div class="col-sm-2">
 
-					<form:password showPassword="true" path="password" class="form-control form-control-sm" id="disablepassword"></form:password>
+					<form:password showPassword="true" path="password" class="form-control form-control-sm" id="enablepassword"></form:password>
 				</div>
 			</div>
 				<%
@@ -105,18 +105,26 @@
 				</div>
 			</div>
 
-			
-			
-			<div class="col-sm-11">
+				<div class="form-group row">
 					<label for="button" class="col-sm-2 col-form-label"> </label>
-					
+					<div class="col-sm-6">
 						<input type="submit" value="Save" id="button" /> 
-						<input type="button" onclick="" value="Clear" id="button">
-						  <input type="button" onclick="location.href='/Springteam2Project/'" value="Back" id="button">
+						
+						 
+						 <%
+					    String password1 = request.getParameter("id");
+						if (password1 == null) {
+				        %>
+						
+						 <input type="button" onclick="" value="Clear" id="button">
 						
 					
-				</div>
 				
+				<%
+					}
+				%>
+				<input type="button" onclick="location.href='/Springteam2Project/'" value="Back" id="button">
+				</div>
 		</div>
 
 	</form:form>

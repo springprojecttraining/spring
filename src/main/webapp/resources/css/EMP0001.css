@@ -34,13 +34,15 @@ textarea{
     padding-left:-20px;
   }
   
-  a{
-	text-decoration: underline;
-}
 #editlink{
 	cursor:pointer;
+	text-decoration: underline
 }
-#disablepassword{
+#password{
 	pointer-events:none;
 	background-color:#ddd;
 }
+#backbutton{
+	
+}
+
