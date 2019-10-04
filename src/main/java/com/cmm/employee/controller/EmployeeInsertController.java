@@ -95,29 +95,29 @@ public class EmployeeInsertController {
 		return empeditform;
 	}
 	
+//	@RequestMapping(value = "/search",  method = RequestMethod.POST)
+//	public String searchlistEmployee(@ModelAttribute("searchmployee")Employee employee, Model model) {
+////		int empid=Integer.parseInt(request.getParameter("id"));
+////		Employee Employeesearch=employeeInsertService.getEmployeeById(empid);
+////		 ModelAndView empsrcform = new ModelAndView("EMP0002");
+////		 empsrcform.addObject("employee",Employeesearch);
+////		return em  psrcform;
+//		List<Employee> search_list = employeeInsertService.getSearchAllEmployee(employee.getEmployee_name(),employee.getEmployee_id());
+//		searchmployee.addObject("listEmployee", search_list);
+//		searchmployee.addObject("empSearch", new Employee());
+//		searchmployee.setViewName("EMP0002");
+//		return "EMP0002";
+//	}
+	
+	@RequestMapping(value = "/search",  method = RequestMethod.POST)
+	public ModelAndView searchlistEmployee(HttpServletRequest request) {
+		
+		return null;
+	}
 	
 	@PostMapping("/delete")
 	public String delete(@RequestParam("id") long id) {
 		employeeInsertService.delete(id);
 	    return "EMP0002";
 	}
-	
-	
-//	@GetMapping("/update")
-//	public String EditInsertForm(Model theModel) {
-//		Employee theEmployee = new Employee();
-//		theModel.addAttribute("employee", theEmployee);
-//		return "EMP0001";
-//	}
-	
-//	/* It displays object data into form for the given id.   
-//     * The @PathVariable puts URL data into variable.*/    
-//	@RequestMapping(value="/update}")    
-//    public String EditInsertForm(@PathVariable int id, Model m){    
-//		Employee theEmployee=employeeInsertService.getAllEmployees(id);    
-//        m.addAttribute("employee",theEmployee);  
-//        return "EMP0001";    
-//    }    
-
-
 }

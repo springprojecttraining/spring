@@ -2,6 +2,7 @@ package com.cmm.employee.entity;
 
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -159,6 +160,5 @@ public class Employee {
 	public void setUpdated_date(Date updated_date) {
 		this.updated_date = updated_date;
 	}
-
 
 }

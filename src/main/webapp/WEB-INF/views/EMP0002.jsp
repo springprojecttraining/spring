@@ -76,7 +76,7 @@
    <div>
       <label class="col-sm-2 col-form-label"></label> 
        
-      <input class="btn btn-secondary" type="button" onclick="/" value="Search"> 
+      <input class="btn btn-secondary" type="button" onclick="location.href='search'" value="Search"> 
        <input class="btn btn-secondary" type="button" onclick="/" value="Cancel">     
        <input class="btn btn-secondary" type="button" onclick="location.href='delete?id=${employee.id}'" value="Delete"> 
        <input class="btn btn-secondary" type="button" onclick="/" value="Excel">            
@@ -100,7 +100,7 @@
 				<th>Age</th>
 				<th>Gender</th>
 				<th>Note</th>
-				<th></th>
+				
 			</tr>
 
 			<c:forEach var="employee" items="${listEmployee}">
@@ -115,12 +115,13 @@
 					<td>${employee.age}</td>
 					<td>${employee.gender}</td>
 					<td>${employee.note}</td>
-					<td><a href="delete?id=${employee.id}">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 
 
+					
+					
 	</div>
 	
 	

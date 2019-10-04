@@ -126,7 +126,7 @@
 				<input type="button" onclick="location.href='/Springteam2Project/'" value="Back" id="button">
 				</div>
 		</div>
-
+</div>
 	</form:form>
 
 	<script src="<c:url value="/webjars/jquery/3.4.1/jquery.min.js" />"></script>
