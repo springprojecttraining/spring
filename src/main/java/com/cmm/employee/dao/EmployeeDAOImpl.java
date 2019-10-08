@@ -38,9 +38,38 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	
+	public List<Employee> getSearchEmp(String string, String valueOf) {
+		// TODO Auto-generated method stub
+		return sessionFactory.getCurrentSession().createQuery("select emp from Employee emp where upper(employee.employee_name) like :emp_name OR upper(emp.employee_id) like :emp_no")
+			.setParameter("emp_name",  "%" + string + "%").setParameter("emp_no",  "%" + valueOf + "%").list();
+	}
+
+	@Override
+	public List<Employee> getEmployeeSearchByName(String string, String valueOf) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
+//	@SuppressWarnings("unchecked")
+//	public List<Employee> getEmployeeBy(String string, String valueOf) {
+//		return sessionFactory.getCurrentSession().createQuery("from Employee where "+string+" like '%"+valueOf+"%'").list();
+//	}	
+}
 	
 
+//	@SuppressWarnings("unchecked")
+//	public List<Employee> getSearchEmployee(String string, String valueOf) {
+//		// TODO Auto-generated method stub
+//		return sessionFactory.getCurrentSession().createQuery("select emp from Employee emp where upper(employee.employee_name) like :emp_name OR upper(emp.employee_id) like :emp_no")
+//				.setParameter("emp_name",  "%" + string + "%").setParameter("emp_no",  "%" + valueOf + "%").getResultList();
+//	}
+//	}
+
+	
 	
 //	public Employee getEmployeeBy(String employee_id) {
 //		String sql = "select employee_id,employee_name,date_of_birth,age,gender,note from Employee where employee_name like '%"
@@ -73,4 +102,4 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 //		return sessionFactory.getCurrentSession().createQuery("from Employee where employee_name like '%"+employee_name+"%'").list();
 //	}
 
-}
+

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cmm.employee.entity.Employee;
@@ -95,29 +94,62 @@ public class EmployeeInsertController {
 		return empeditform;
 	}
 	
-//	@RequestMapping(value = "/search",  method = RequestMethod.POST)
-//	public String searchlistEmployee(@ModelAttribute("searchmployee")Employee employee, Model model) {
-////		int empid=Integer.parseInt(request.getParameter("id"));
-////		Employee Employeesearch=employeeInsertService.getEmployeeById(empid);
-////		 ModelAndView empsrcform = new ModelAndView("EMP0002");
-////		 empsrcform.addObject("employee",Employeesearch);
-////		return em  psrcform;
-//		List<Employee> search_list = employeeInsertService.getSearchAllEmployee(employee.getEmployee_name(),employee.getEmployee_id());
-//		searchmployee.addObject("listEmployee", search_list);
-//		searchmployee.addObject("empSearch", new Employee());
-//		searchmployee.setViewName("EMP0002");
-//		return "EMP0002";
-//	}
+
 	
-	@RequestMapping(value = "/search",  method = RequestMethod.POST)
-	public ModelAndView searchlistEmployee(HttpServletRequest request) {
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	public String searchEmployee(@ModelAttribute("empSearch") Employee emp,Model m) {	
+		System.out.println(emp.getEmployee_name());
+//		List<Employee> name=employeeInsertService.getEmployeeSearchByName("employee_name",String.valueOf(emp.getEmployee_name()));
+//	System.out.println("EMP LIST: "+name.get(0).getEmployee_name());
 		
-		return null;
+		
+//		List<Employee> name = employeeInsertService.getSearchEmp("employee_name",String.valueOf(emp.getEmployee_name()));
+//		if(!name.isEmpty()) {
+//			m.addAttribute("listEmployee", name);
+//		}
+		//getDashData(m);
+		return "EMP0002";
+		
+		
+		
+		
+		
+		
+//			List<Employee> name=employeeInsertService.getEmployeeBy("employee_name",String.valueOf(emp.getEmployee_name()));
+//		System.out.println("EMP LIST: "+name.get(0).getEmployee_name());
+		
+//		System.out.println(emp.getAge());
+//		List<Employee> ageList=empService.getEmployeeBy("age",String.valueOf(emp.getAge()));
+//		System.out.println("EMP LIST: "+ageList.get(0).getAge());
+		
+//		if(emp.getEmployee_name() == null) {
+//			
+//		}else {
+//		m.addAttribute("listEmployee",name);
+//		}
+////		if(emp.getAge() == 0)  {
+////			
+////		}else {
+////			m.addAttribute("ListEmp",ageList);
+////		}
+		//return "EMP0002";
 	}
 	
-	@PostMapping("/delete")
-	public String delete(@RequestParam("id") long id) {
-		employeeInsertService.delete(id);
-	    return "EMP0002";
-	}
+	
+//	@RequestMapping(value = "/search",  method = RequestMethod.POST)
+//	public String getSearchEmployee(@ModelAttribute("semployee")Employee employee, Model model) {
+//		
+//		List<Employee> search_list = employeeInsertService.getSearchEmployee("employee_name",String.valueOf(employee.getEmployee_name()));
+//		if(!search_list.isEmpty()) {
+//			model.addAttribute("sdata", search_list);
+//		}
+//		getDashData(model);
+//		return "dash";
+//	}
+//	
+//	@PostMapping("/delete")
+//	public String delete(@RequestParam("id") long id) {
+//		employeeInsertService.delete(id);
+//	    return "EMP0002";
+//	}
 }

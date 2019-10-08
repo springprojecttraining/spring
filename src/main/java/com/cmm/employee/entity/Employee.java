@@ -2,7 +2,6 @@ package com.cmm.employee.entity;
 
 
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;

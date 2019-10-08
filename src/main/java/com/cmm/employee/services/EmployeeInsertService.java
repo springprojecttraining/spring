@@ -14,9 +14,12 @@ public interface EmployeeInsertService {
 
 	public Employee delete(long id);
 
-	
+	public List<Employee> getSearchEmp(String string, String valueOf);
 
+	public List<Employee> getEmployeeSearchByName(String string, String valueOf);
 
+//	public List<Employee> getEmployeeBy(String string, String valueOf);
 
-	
+//	public List<Employee> getSearchEmployee(String string, String valueOf);
+
 }

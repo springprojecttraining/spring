@@ -37,6 +37,28 @@ public  class EmployeeInsertServiceImpl implements EmployeeInsertService{
 		// TODO Auto-generated method stub
 		return employeeDAO.delete(id);
 	}
+//	@Override
+//	public List<Employee> getEmployeeBy(String string, String valueOf) {
+//		// TODO Auto-generated method stub
+//		return employeeDAO.getEmployeeBy(string,valueOf);
+//	}
+//	@Override
+//	public List<Employee> getSearchEmployee(String string, String valueOf) {
+//		// TODO Auto-generated method stub
+//		return employeeDAO.getSearchEmployee(string,valueOf);
+//	}
+	@Override
+	public List<Employee> getSearchEmp(String string, String valueOf) {
+		// TODO Auto-generated method stub
+		return employeeDAO.getSearchEmp(string,valueOf);
+	}
+	@Override
+	public List<Employee> getEmployeeSearchByName(String string, String valueOf) {
+		// TODO Auto-generated method stub
+		return employeeDAO.getEmployeeSearchByName(string,valueOf);
+	}
+	
+	
 	
 	
 //	@Transactional

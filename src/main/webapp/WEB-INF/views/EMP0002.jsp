@@ -19,7 +19,7 @@
 <body>
 	<div class="container">
 
-		<form:form action="saveEmployee" method="post"
+		<form:form action="search" method="post"
 			modelAttribute="empSearch">
 			
 			
@@ -76,7 +76,7 @@
    <div>
       <label class="col-sm-2 col-form-label"></label> 
        
-      <input class="btn btn-secondary" type="button" onclick="location.href='search'" value="Search"> 
+      <input class="btn btn-secondary" type="submit"value="Search"> 
        <input class="btn btn-secondary" type="button" onclick="/" value="Cancel">     
        <input class="btn btn-secondary" type="button" onclick="location.href='delete?id=${employee.id}'" value="Delete"> 
        <input class="btn btn-secondary" type="button" onclick="/" value="Excel">            
