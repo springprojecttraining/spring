@@ -99,57 +99,39 @@ public class EmployeeInsertController {
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public String searchEmployee(@ModelAttribute("empSearch") Employee emp,Model m) {	
 		System.out.println(emp.getEmployee_name());
-//		List<Employee> name=employeeInsertService.getEmployeeSearchByName("employee_name",String.valueOf(emp.getEmployee_name()));
-//	System.out.println("EMP LIST: "+name.get(0).getEmployee_name());
+		List<Employee> employee = employeeInsertService.getEmployeeSearchByName("employee_name",String.valueOf(emp.getEmployee_name()));
 		
+		System.out.println(emp.getAge());
+		List<Employee> ageList=employeeInsertService.getEmployeeSearchByName("age",String.valueOf(emp.getAge()));
 		
-//		List<Employee> name = employeeInsertService.getSearchEmp("employee_name",String.valueOf(emp.getEmployee_name()));
-//		if(!name.isEmpty()) {
-//			m.addAttribute("listEmployee", name);
-//		}
-		//getDashData(m);
+		System.out.println(emp.getGender());
+		List<Employee> genderList=employeeInsertService.getEmployeeSearchByName("gender",String.valueOf(emp.getGender()));
+
+		if(emp.getEmployee_name() == null) {
+			
+		}else {
+		m.addAttribute("listEmployee", employee);
+		}
+		if(emp.getAge() == 0)  {
+			
+		}else {
+			m.addAttribute("listEmployee",ageList);
+		}
+		if(emp.getGender() == null)  {
+			
+		}else {
+			m.addAttribute("listEmployee",genderList);
+		}
+          
 		return "EMP0002";
 		
+
 		
-		
-		
-		
-		
-//			List<Employee> name=employeeInsertService.getEmployeeBy("employee_name",String.valueOf(emp.getEmployee_name()));
-//		System.out.println("EMP LIST: "+name.get(0).getEmployee_name());
-		
-//		System.out.println(emp.getAge());
-//		List<Employee> ageList=empService.getEmployeeBy("age",String.valueOf(emp.getAge()));
-//		System.out.println("EMP LIST: "+ageList.get(0).getAge());
-		
-//		if(emp.getEmployee_name() == null) {
-//			
-//		}else {
-//		m.addAttribute("listEmployee",name);
-//		}
-////		if(emp.getAge() == 0)  {
-////			
-////		}else {
-////			m.addAttribute("ListEmp",ageList);
-////		}
-		//return "EMP0002";
-	}
-	
-	
-//	@RequestMapping(value = "/search",  method = RequestMethod.POST)
-//	public String getSearchEmployee(@ModelAttribute("semployee")Employee employee, Model model) {
-//		
-//		List<Employee> search_list = employeeInsertService.getSearchEmployee("employee_name",String.valueOf(employee.getEmployee_name()));
-//		if(!search_list.isEmpty()) {
-//			model.addAttribute("sdata", search_list);
-//		}
-//		getDashData(model);
-//		return "dash";
-//	}
-//	
+
 //	@PostMapping("/delete")
 //	public String delete(@RequestParam("id") long id) {
 //		employeeInsertService.delete(id);
 //	    return "EMP0002";
 //	}
+	}
 }

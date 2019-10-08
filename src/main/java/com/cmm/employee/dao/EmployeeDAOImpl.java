@@ -27,7 +27,18 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	public List<Employee> getAllEmployees() {
 		return sessionFactory.getCurrentSession().createQuery("from Employee").list();
 	}
-
+	
+	@SuppressWarnings("unchecked")
+	public List<Employee> getEmployeeSearchByName(String col,String valueOf) {
+		return sessionFactory.getCurrentSession().createQuery("from Employee where "+col+" like '%"+valueOf+"%'").list();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Employee> getEmployeeSearchByAge(String string, String valueOf) {
+		// TODO Auto-generated method stub
+		return sessionFactory.getCurrentSession().createQuery("from Employee where "+string+" like '%"+valueOf+"%'").list();
+	}
+	
 	public Employee getEmployee(int employee_id) {
 		return (Employee) sessionFactory.getCurrentSession().get(Employee.class, employee_id);
 	}
@@ -39,17 +50,10 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	
 	public List<Employee> getSearchEmp(String string, String valueOf) {
 		// TODO Auto-generated method stub
 		return sessionFactory.getCurrentSession().createQuery("select emp from Employee emp where upper(employee.employee_name) like :emp_name OR upper(emp.employee_id) like :emp_no")
 			.setParameter("emp_name",  "%" + string + "%").setParameter("emp_no",  "%" + valueOf + "%").list();
-	}
-
-	@Override
-	public List<Employee> getEmployeeSearchByName(String string, String valueOf) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 

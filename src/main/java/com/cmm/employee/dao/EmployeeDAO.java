@@ -18,6 +18,8 @@ public interface EmployeeDAO {
 
 	public List<Employee> getEmployeeSearchByName(String string, String valueOf);
 
+	public List<Employee> getEmployeeSearchByAge(String string, String valueOf);
+
 	//public List<Employee> getEmployeeBy(String string, String valueOf);
 
 //	public List<Employee> getSearchEmployee(String string, String valueOf);
