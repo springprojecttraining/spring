@@ -9,16 +9,23 @@ public interface EmployeeInsertService {
 	public void saveEmployee(Employee theEmployee);
 
 	public List<Employee> getAllEmployees();
-	
+
 	public List<Employee> getEmployeeSearchByName(String string, String valueOf);
 
 	public Employee getEmployee(int employeeId);
 
 	public Employee delete(long id);
 
-//	public List<Employee> getSearchEmp(String string, String valueOf);
+	public Employee getEmployeeBy(String employee_id);
 
-	public List<Employee> getEmployeeSearchByAge(String string, String valueOf);
+	public void deleteEmployee(int parseInt);
 
+	public void delEmployee(int empId);
+
+	//public void deleteEmployee(int parseInt);
+
+//	public void deleteEmployee(int parseInt);
+
+//	public boolean checkEmpLogin(String employee_id, String password);
 
 }

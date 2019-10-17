@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
+
 
 import com.cmm.employee.entity.Employee;
 
@@ -33,12 +35,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return sessionFactory.getCurrentSession().createQuery("from Employee where "+col+" like '%"+valueOf+"%'").list();
 	}
 	
-	@SuppressWarnings("unchecked")
-	public List<Employee> getEmployeeSearchByAge(String string, String valueOf) {
-		// TODO Auto-generated method stub
-		return sessionFactory.getCurrentSession().createQuery("from Employee where "+string+" like '%"+valueOf+"%'").list();
-	}
-	
+
 	public Employee getEmployee(int employee_id) {
 		return (Employee) sessionFactory.getCurrentSession().get(Employee.class, employee_id);
 	}
@@ -49,61 +46,70 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return null;
 	}
 
-	@SuppressWarnings("unchecked")
-	public List<Employee> getSearchEmp(String string, String valueOf) {
-		// TODO Auto-generated method stub
-		return sessionFactory.getCurrentSession().createQuery("select emp from Employee emp where upper(employee.employee_name) like :emp_name OR upper(emp.employee_id) like :emp_no")
-			.setParameter("emp_name",  "%" + string + "%").setParameter("emp_no",  "%" + valueOf + "%").list();
+	@Override
+	public Employee getEmployeeBy(String employee_id) {
+		String sql = "select employee_id,employee_name,date_of_birth,age,gender,note from Employee where employee_name like '%"
+				+ employee_id + "%'";
+		Employee emp = (Employee) sessionFactory.getCurrentSession().createQuery(
+			    "from Employee e where e.employee_id = :employee_id").setParameter("employee_id", employee_id).getSingleResult();
+		//System.out.println("Emp "+emp.id);
+		return emp;
 	}
 
+	@Override
+	public Object deleteEmployee(int parseInt) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+//	@Override
+	public void delEmployee(int empId) {
+		// TODO Auto-generated method stub
+		Employee employee = (Employee) sessionFactory.getCurrentSession().load(Employee.class, empId);
+		if (null != employee) {
+			this.sessionFactory.getCurrentSession().delete(employee);
+		}
+	}
 
 	
-//	@SuppressWarnings("unchecked")
-//	public List<Employee> getEmployeeBy(String string, String valueOf) {
-//		return sessionFactory.getCurrentSession().createQuery("from Employee where "+string+" like '%"+valueOf+"%'").list();
-//	}	
-}
-	
+
+//	@Override
+//	public void deleteEmployee(int parseInt) {
+//		Employee employee = (Employee)sessionFactory.getCurrentSession().load(Employee.class, parseInt);
+//		if(null != employee)
+//		{
+//			this.sessionFactory.getCurrentSession().delete(employee);
+//		}
+//		//return employee;
+//	}
 
 //	@SuppressWarnings("unchecked")
-//	public List<Employee> getSearchEmployee(String string, String valueOf) {
+//	public List<Employee> getSearchEmp(String string, String valueOf) {
 //		// TODO Auto-generated method stub
 //		return sessionFactory.getCurrentSession().createQuery("select emp from Employee emp where upper(employee.employee_name) like :emp_name OR upper(emp.employee_id) like :emp_no")
-//				.setParameter("emp_name",  "%" + string + "%").setParameter("emp_no",  "%" + valueOf + "%").getResultList();
-//	}
+//			.setParameter("emp_name",  "%" + string + "%").setParameter("emp_no",  "%" + valueOf + "%").list();
 //	}
 
+
 	
-	
-//	public Employee getEmployeeBy(String employee_id) {
-//		String sql = "select employee_id,employee_name,date_of_birth,age,gender,note from Employee where employee_name like '%"
-//				+ employee_id + "%'";
-//		Employee emp = (Employee) sessionFactory.getCurrentSession().createQuery(
-//			    "from Employee e where e.employee_id = :employee_id").setParameter("employee_id", employee_id).getSingleResult();
-//		System.out.println("Emp "+emp.id);
-//		return emp;
+
+//	@Override
+//	public boolean checkEmpLogin(String employee_id, String password) {
+//		// TODO Auto-generated method stub
+//		return true;
 //	}
-//
-//	public void updateEmployee(Employee theEmployee) {
-//		sessionFactory.getCurrentSession().update(theEmployee);
-//	}
-//
-//	public void deleteEmployee(int id) {
-//		Employee employee = (Employee) sessionFactory.getCurrentSession().load(Employee.class, id);
-//		if (null != employee) {
+//	public void deleteEmployeer(int id) {
+//		Employee employee = (Employee)sessionFactory.getCurrentSession().load(Employee.class, id);
+//		if(null != employee)
+//		{
 //			this.sessionFactory.getCurrentSession().delete(employee);
 //		}
 //	}
-//
-//	public Object getEmployeeName(String employee_name) {
-//		String sql = "select employee_id,employee_name,date_of_birth,age,gender,note from Employee where employee_name like '%"
-//				+ employee_name + "%'";
-//		return (Employee) sessionFactory.getCurrentSession().get(sql, Employee.class);
-//	}
-//	
-//	@SuppressWarnings("unchecked")
-//	public List<Employee> getEmployeeNameForSearch(String employee_name){
-//		return sessionFactory.getCurrentSession().createQuery("from Employee where employee_name like '%"+employee_name+"%'").list();
-//	}
+}
+
+
+
+	
+
 
 

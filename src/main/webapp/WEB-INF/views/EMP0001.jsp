@@ -7,17 +7,23 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link href="<c:url value="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/EMP0001.css" />" rel="stylesheet">
-
+<link
+	href="<c:url value="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />"
+	rel="stylesheet">
+<link href="<c:url value="/resources/css/EMP0001.css" />"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
 </head>
 <body>
-	<form:form action="saveEmployee" method="post" modelAttribute="employee">
+	<form:form action="saveEmployee" method="post"
+		modelAttribute="employee">
 
 		<div class="container">
-		<form:hidden path="id" />
+			<form:hidden path="id" />
 			<div class="form-group row">
-				
+
 				<form:label path="employee_name" class="col-sm-2 col-form-label">Employee Name</form:label>
 				<div class="col-sm-3">
 					<form:input path="employee_name"
@@ -25,45 +31,49 @@
 
 				</div>
 			</div>
-			
+
 			<%
-					String pass = request.getParameter("id");
-						if (pass == null) {
-				%>
-				<div class="form-group row">
-				<form:label path="password" class="col-sm-2 col-form-label">Password ( <span class="star">*</span> )</form:label>
+				String pass = request.getParameter("id");
+					if (pass == null) {
+			%>
+			<div class="form-group row">
+				<form:label path="password" class="col-sm-2 col-form-label">Password ( <span
+						class="star">*</span> )</form:label>
 
 				<div class="col-sm-2">
 
-					<form:password showPassword="true" path="password" class="form-control form-control-sm" id="enablepassword"></form:password>
+					<form:password showPassword="true" path="password"
+						class="form-control form-control-sm" id="enablepassword"></form:password>
 				</div>
 			</div>
-				<%
-					} else {
-				%>
-				<div class="form-group row">
-					<form:label path="password" class="col-sm-2 col-form-label">Password ( <span class="star">*</span> )</form:label>
-					<div class="col-sm-2">
-						<form:password showPassword="true" path="password" class="form-control form-control-sm" id="password"></form:password>
-						</div>
-						 <div class="edit">
-						 <a id="editlink" onclick="enable()">Edit</a>
-												
-							</div>
-					
-				</div>
-					<%
-					}
-				%>
-				
-			
+			<%
+				} else {
+			%>
 			<div class="form-group row">
-                <form:label type="date" path="date_of_birth" class="col-sm-2 col-form-label" >Date of Birth</form:label>
-				
+				<form:label path="password" class="col-sm-2 col-form-label">Password ( <span
+						class="star">*</span> )</form:label>
+				<div class="col-sm-2">
+					<form:password showPassword="true" path="password"
+						class="form-control form-control-sm" id="password"></form:password>
+				</div>
+				<div class="edit">
+					<a id="editlink" onclick="enable()">Edit</a>
+
+				</div>
+
+			</div>
+			<%
+				}
+			%>
+
+
+			<div class="form-group row">
+				<form:label type="date" path="date_of_birth"
+					class="col-sm-2 col-form-label">Date of Birth</form:label>
+
 				<div class="col-sm-2">
 					<form:input path="date_of_birth"
-						class="form-control form-control-sm" />
-
+						class="form-control form-control-sm" id="DOB" />
 				</div>
 			</div>
 			<div class="form-group row">
@@ -71,16 +81,16 @@
 				<form:label path="age" class="col-sm-2 col-form-label">Age</form:label>
 
 				<div class="col-sm-2">
-				<form:input path="age" class="form-control form-control-sm"
-							id="textbox" disabled="true" />
-					
+					<form:input path="age" class="form-control form-control-sm"
+						id="age" readonly="true" />
+
 				</div>
 
 			</div>
 
-			<div class="row" >
-				<form:label path="gender" class="col-form-label col-sm-2" >Gender</form:label>
-				<div class="col-sm-10" >
+			<div class="row">
+				<form:label path="gender" class="col-form-label col-sm-2">Gender</form:label>
+				<div class="col-sm-10">
 
 					<form:radiobutton path="gender" value="male" />
 					Male &nbsp;&nbsp;
@@ -105,38 +115,67 @@
 				</div>
 			</div>
 
-				<div class="form-group row">
-					<label for="button" class="col-sm-2 col-form-label"> </label>
-					<div class="col-sm-6">
-						<input type="submit" value="Save" id="button" /> 
-						
-						 
-						 <%
-					    String password1 = request.getParameter("id");
-						if (password1 == null) {
-				        %>
-						
-						 <input type="button" onclick="" value="Clear" id="button">
-						
-					
-				
-				<%
-					}
-				%>
-				<input type="button" onclick="location.href='/Springteam2Project/'" value="Back" id="button">
+			<div class="form-group row">
+				<label for="button" class="col-sm-2 col-form-label"> </label>
+				<div class="col-sm-6">
+					<input type="submit" value="Save" id="button" />
+
+
+					<%
+						String password1 = request.getParameter("id");
+							if (password1 == null) {
+					%>
+
+					<input type="button" onclick="" value="Clear" id="button">
+
+
+
+					<%
+						}
+					%>
+
+					<input type="button"
+						onclick="location.href='/Springteam2Project/searchEmployee'"
+						value="Back" id="button">
 				</div>
+
+
+			</div>
 		</div>
-</div>
 	</form:form>
 
 	<script src="<c:url value="/webjars/jquery/3.4.1/jquery.min.js" />"></script>
-	<script src="<c:url value="/webjars/bootstrap/4.3.1/js/bootstrap.min.js" />"></script>
+	<script
+		src="<c:url value="/webjars/bootstrap/4.3.1/js/bootstrap.min.js" />"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </body>
 <script>
-	 document.getElementById("editlink").style.cursor = "pointer";
-	 function enable(){
-		 document.getElementById('password').style.backgroundColor = "white";
-		 document.getElementById('password').style.pointerEvents = "auto";	 
-	 }
+	$(document).ready(
+			function() {
+
+				$('#DOB')
+						.datepicker(
+								{
+									dateFormat : "yy/mm/dd",
+									onSelect : function(value, ui) {
+										var today = new Date(), dob = new Date(
+												value), age = new Date(today
+												- dob).getFullYear() - 1970;
+
+										$('#age').val(age);
+									},
+									maxDate : '+0d',
+									yearRange : '1940:2100',
+									changeMonth : true,
+									changeYear : true,
+
+								});
+			});
+	document.getElementById("editlink").style.cursor = "pointer";
+	function enable() {
+		document.getElementById('password').style.backgroundColor = "white";
+		document.getElementById('password').style.pointerEvents = "auto";
+	}
 </script>
 </html>

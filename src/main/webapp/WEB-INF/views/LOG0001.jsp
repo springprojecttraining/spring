@@ -16,31 +16,36 @@
 
        <div class="d-flex justify-content-center login-box" >
        <div class="col-sm-4">
-      <form:form action="" method="post" modelAttribute="emplogin">
+      <form:form action="login" method="post" modelAttribute="emplogin">
             <div class="form-group row">
             <form:label path="employee_id" class="col-sm-4 col-form-label form-control-sm">Employee ID(<span class ="star">*</span>)</form:label>
             
               <div class="col-sm-6">
                 <form:input path="employee_id" class="form-control form-control-sm" />
+                <small><form:errors path="employee_id" cssClass="errormsg" /></small>
               </div>
             </div>
 
             <div class="form-group row">
-            <form:label path="employee_id" class="col-sm-4 col-form-label form-control-sm">Password(<span class ="star">*</span>)</form:label>
+            <form:label path="password" class="col-sm-4 col-form-label form-control-sm">Password(<span class ="star">*</span>)</form:label>
               <div class="col-sm-6">
-               <form:password showPassword="true" path="password" class="form-control form-control-sm"></form:password>
+               <form:password showPassword="true" path="password" class="form-control form-control-sm" ></form:password>
+               <small><form:errors path="password" class="errormsg" /></small>
               </div>
             </div>
 
               <div class="form-group row">
             <form:label path="" class="col-sm-4 col-form-label form-control-sm"></form:label>
-             
+           
                 <div class="col-sm-6">
-               <input type="button" onclick="location.href='/Springteam2Project'" value="Login" id="button">
+               <input type="submit"  value="Login" id="button">
                 <input type="button" onclick="location.href='/Springteam2Project'" value="Cancel" id="button">
               </div>
              </div>
        </form:form>
+       
+      
+       
         </div>
     </div>
    

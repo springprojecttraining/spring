@@ -14,8 +14,8 @@
 <body>
 	<ul>
 	
-		<li style="float:right;"><a href="/" style="color: #00b0f0;padding-right: 20px;text-align: left;"><span style="border-bottom: 1px solid #00b0f0;">Logout</span></a></li>
-		<li style="float: right;"><a href="#" style="text-decoration:none;">Employee ID : ${employee.id} <br> Employee Name : ${employee_name}</a></li>
+		<li style="float:right;"><a href="/Springteam2Project" style="color: #00b0f0;padding-right: 20px;text-align: left;"><span style="border-bottom: 1px solid #00b0f0;">Logout</span></a></li>
+		<li style="float: right;"><a href="#" style="text-decoration:none;">Employee ID : ${emplogin.employee_id} <br> Employee Name : ${emplogin.employee_name}</a></li>
 	</ul>
 	<div id="sidenav">
 	<a href="employeeInsert">Employee Insert</a>

@@ -14,34 +14,20 @@ public interface EmployeeDAO {
 
 	public Employee delete(long id);
 
-	public List<Employee> getSearchEmp(String string, String valueOf);
-
 	public List<Employee> getEmployeeSearchByName(String string, String valueOf);
 
-	public List<Employee> getEmployeeSearchByAge(String string, String valueOf);
+	public Employee getEmployeeBy(String employee_id);
 
-	//public List<Employee> getEmployeeBy(String string, String valueOf);
+	public Object deleteEmployee(int parseInt);
 
-//	public List<Employee> getSearchEmployee(String string, String valueOf);
+	public void delEmployee(int empId);
 
+//	public void deleteEmployee(int parseInt);
 
-	
-	
-	
+//	public Object deleteEmployee(int parseInt);
 
-	
+//	public void deleteEmployee(int parseInt);
 
-//	public Employee getEmployee(int employee_id);
-//	
-//	public Employee getEmployeeBy(String employee_id);
-//
-//	public void updateEmployee(Employee theEmployee);
-//
-//	public void deleteEmployee(int id);
-//
-//	public Object getEmployeeName(String employee_name);
-//
-//	public List<Employee> getEmployeeNameForSearch(String employee_name);
-
+//	public boolean checkEmpLogin(String employee_id, String password);
 
 }
