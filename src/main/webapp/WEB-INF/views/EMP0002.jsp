@@ -14,6 +14,8 @@
 	rel="stylesheet">
 <link href="<c:url value="/resources/css/EMP0002.css" />"
 	rel="stylesheet">
+	<link href="<c:url value="/resources/css/common.css" />"
+	rel="stylesheet">
 
 </head>
 
@@ -142,8 +144,6 @@
 						<td>${employee.age}</td>
 						<td>${employee.gender}</td>
 						<td>${employee.note}</td>
-						<!--<td id="notewidth" align="left">${emplist.note}</td>
-										     <td><a href="deleteEmp?id=${emplist.emp_id}">Delete</a></td>-->
 					</tr>
 				</c:forEach>
 

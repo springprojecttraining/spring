@@ -56,11 +56,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return emp;
 	}
 
-	@Override
-	public Object deleteEmployee(int parseInt) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 //	@Override
 	public void delEmployee(int empId) {
@@ -90,8 +86,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 //			.setParameter("emp_name",  "%" + string + "%").setParameter("emp_no",  "%" + valueOf + "%").list();
 //	}
 
-
-	
 
 //	@Override
 //	public boolean checkEmpLogin(String employee_id, String password) {

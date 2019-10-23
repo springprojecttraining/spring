@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,21 +22,27 @@
 	<br>
 	<a href="searchEmployee">Employee Search</a>
 	</div>
+	<form:form action="timesave" method="post"
+		modelAttribute="menu">
 	<div id="content" style="">
 		<div class="row">
 			<div class="col-md-4" style="">
-			Employee Name : ${employee.employee_name}
+			Employee Name :
 			<div class="row">
+			
 				<div class="col-sm-6">
 					IN<br>
-					<input type="text" name="" value="HH :">
+					
+					
 				</div>
 				<div class="col-sm-6">
 					OUT<br>
-					<input type="text" name="" value="HH :">
+					
+					
 				</div>
 			</div>
 			</div>
+			
 			<div class="col-md-4" style="">
 				Reason<br>
 				<div style="width: 100%;overflow: hidden;">
@@ -74,6 +80,7 @@
 			</table>
 		</div>
 	</div>
+	</form:form>
 <script src="<c:url value="/webjars/jquery/3.4.1/jquery.min.js" />"></script>
 	<script src="<c:url value="/webjars/bootstrap/4.3.1/js/bootstrap.min.js" />"></script>
 </body>

@@ -10,6 +10,7 @@
 <link
 	href="<c:url value="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />"
 	rel="stylesheet">
+	<link href="<c:url value="/resources/css/common.css" />"  rel="stylesheet">
 <link href="<c:url value="/resources/css/EMP0001.css" />"
 	rel="stylesheet">
 <link rel="stylesheet"

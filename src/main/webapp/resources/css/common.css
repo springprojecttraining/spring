@@ -1,0 +1,49 @@
+html,body{
+    height: 100%;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+    background-color: #e2efda;
+    overflow: hidden;
+    border:1px solid black;
+
+}
+ul li{
+    float: left;
+    height: 60px;
+    margin: 0;
+    padding:0 7px;
+}
+ul li a{
+    display: block;
+    width: 100%;
+    padding: 0;
+    color:black;
+}
+#sidenav{
+    width: 200px;
+    background-color: #e2efda;
+    height: 200%;
+    margin-top: -16px;
+    margin-left: 1px;
+    border:1px solid black;
+    position: absolute;
+}
+
+.Log{
+    text-decoration: underline;
+    color:#00b0f0;
+}
+
+#li{
+    float:right;
+}
+#logout{
+    
+    color: #00b0f0;
+    padding-right: 20px;
+    text-align: left;
+    border-bottom: 1px solid #00b0f0;
+
+}
