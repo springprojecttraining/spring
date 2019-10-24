@@ -22,7 +22,7 @@
             
               <div class="col-sm-6">
                 <form:input path="employee_id" class="form-control form-control-sm" />
-                <small><form:errors path="employee_id" cssClass="text-danger" /></small>
+                <small><form:errors path="employee_id" cssClass="errormsg" /></small>
               </div>
             </div>
 
@@ -30,7 +30,7 @@
             <form:label path="password" class="col-sm-4 col-form-label form-control-sm">Password(<span class ="star">*</span>)</form:label>
               <div class="col-sm-6">
                <form:password showPassword="true" path="password" class="form-control form-control-sm" ></form:password>
-               <small><form:errors path="password" class="text-danger" /></small>
+               <small><form:errors path="password" class="errormsg" /></small>
               </div>
             </div>
 

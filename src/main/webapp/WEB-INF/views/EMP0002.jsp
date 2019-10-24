@@ -3,8 +3,6 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,26 +10,34 @@
 <link
 	href="<c:url value="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />"
 	rel="stylesheet">
-<link href="<c:url value="/resources/css/EMP0002.css" />"
-	rel="stylesheet">
-	<link href="<c:url value="/resources/css/common.css" />"
-	rel="stylesheet">
-
+	<link href="<c:url value="/resources/css/EMP0002.css" />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/common.css" />"  rel="stylesheet">
 </head>
 
 <body>
-	<div class="container">
+	<ul>
+      <li id="li"><a href="/"><span class="Log">Logout</span></a></li>
+      <li style="float: right;"><a href="#" style="text-decoration:none;">Employee ID : ${emplogin.employee_id} <br> Employee Name : ${emplogin.employee_name}</a></li>
+	 </ul>
+	 <div id="sidenav">
+		<a href="employeeInsert">Employee Insert</a>
+	  <br>
+		<a href="searchEmployee">Employee Search</a>	
+    </div>
+	
 		<form:form action="search" method="post" modelAttribute="empSearch">
-			<div class="form-group row">
-				<form:hidden path="id" />
+			<div id="search" style="margin-left:151px; ">
+			<form:hidden path="id" />
+			
+			  <div class="form-group row">
 				<form:label path="employee_name" class="col-sm-2 col-form-label">Employee Name</form:label>
 				<div class="col-sm-3">
 					<form:input path="employee_name"
 						class="form-control form-control-sm" />
-
 				</div>
-			</div>
-
+			  </div>
+			  
+			
 			<div class="form-group row">
 				<form:label path="date_of_birth" class="col-sm-2 col-form-label">Date Of
 						Birth</form:label>
@@ -66,11 +72,11 @@
 					</form:select>
 				</div>
 			</div>
+			
 			<div class="form-group row">
 				<form:label path="age" class="col-sm-2 col-form-label">Age</form:label>
 				<div class="col-sm-2">
-					<form:input path="age" class="form-control form-control-sm"
-						id="textbox" />
+					<form:input path="age" class="form-control form-control-sm" id="textbox" />
 				</div>
 			</div>
 
@@ -86,37 +92,39 @@
 
 					<form:checkbox path="gender" value="Custom" />
 					Custom&nbsp;&nbsp;
-
 				</div>
 			</div>
-
-			<div class="form-group row">
-				<form:label path="gender" class="col-form-label col-sm-2"></form:label>
-
-				<div class="col-sm-10">
-					<button type="submit" class="btn btn-secondary ">Search</button>
-					<button type="button" class="btn btn-secondary ">Cancel</button>
+			
+				<div class="form-group row" style="position: absolute; left: 292px;">
+					<label for="button" class="col-sm-5 col-form-label"> </label>
+					<div class="col-sm-7">
+						<button type="submit" class="btn btn-secondary btn-sm">Search</button>
+					</div>
 				</div>
+			</form:form>
 
-			</div>
-		</form:form>
+			<!-- Delete Employee Form -->
+			<form:form method="POST" action="deleteEmployee"
+				modelAttribute="employeedelete">
+				<div class="form-group row">
+					<label for="button" class="col-sm-2 col-form-label"> </label>
+					<div class="col-sm-7"
+						style="position: relative; left: 80px; padding: 0;">
+						<button type="button" class="btn btn-secondary btn-sm">Cancel</button>
+						<button type="submit" class="btn btn-secondary btn-sm">Delete</button>
+						<button type="button" class="btn btn-secondary btn-sm">Excel</button>
+						<button type="button" class="btn btn-secondary btn-sm">Report</button>
+					</div>
+				</div>
+			
+			
+			
 
-		<form:form action="deleteEmployee" method="POST"
-			modelAttribute="employeedelete">
-			<div class="col-sm-10" style="position: absolute; left: 445px;">
-				<button type="submit" class="btn btn-secondary ">Delete</button>
+		<br>
+		<div class="form-group row">
+			<div class="col-sm-11">
 
-				<input class="btn btn-secondary" type="button" onclick="/"
-					value="Excel"> <input class="btn btn-secondary"
-					type="button" onclick="/" value="Report">
-
-
-			</div>
-
-			<br>
-
-			<table class="table table-bordered table-hover table-striped"
-				class="table table-bordered table-striped mb-0">
+		<table class="table table-bordered table-hover table-striped">
 
 				<tr style="background-color: #EAFAF1; height: 10px;" align="center">
 					<th>No</th>
@@ -128,7 +136,6 @@
 					<th>Age</th>
 					<th>Gender</th>
 					<th>Note</th>
-
 				</tr>
 
 				<c:forEach var="employee" items="${listEmployee}"
@@ -145,22 +152,19 @@
 						<td>${employee.gender}</td>
 						<td>${employee.note}</td>
 					</tr>
-				</c:forEach>
-
-
-			</table>
-
-
-		</form:form>
-
-	</div>
-
-
-
-
-
+				</c:forEach>				
+		</table>
+		</div>
+		</div>
+</form:form>
+		
+		
+		</div>
+		 
 	<script src="<c:url value="/webjars/jquery/3.4.1/jquery.min.js" />"></script>
 	<script
 		src="<c:url value="/webjars/bootstrap/4.3.1/js/bootstrap.min.js" />"></script>
+		
+		
 </body>
 </html>

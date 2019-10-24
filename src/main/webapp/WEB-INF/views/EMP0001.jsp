@@ -7,32 +7,37 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link
-	href="<c:url value="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />"
-	rel="stylesheet">
-	<link href="<c:url value="/resources/css/common.css" />"  rel="stylesheet">
-<link href="<c:url value="/resources/css/EMP0001.css" />"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link href="<c:url value="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />"rel="stylesheet">
+<link href="<c:url value="/resources/css/EMP0001.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/common.css" />"  rel="stylesheet">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 </head>
 <body>
-	<form:form action="saveEmployee" method="post"
-		modelAttribute="employee">
-
-		<div class="container">
+	<ul>
+      <li id="li"><a href="/"><span class="Log">Logout</span></a></li>
+      <li style="float: right;"><a href="#" style="text-decoration:none;">Employee ID : ${emplogin.employee_id} <br> Employee Name : ${emplogin.employee_name}</a></li>
+	 </ul>
+	 	<div id="sidenav">
+			<a href="employeeInsert">Employee Insert</a>
+			<br>
+			<a href="searchEmployee">Employee Search</a>	
+    	</div>
+    	
+		<form:form action="saveEmployee" method="post" modelAttribute="employee">
 			<form:hidden path="id" />
 			<div class="form-group row">
-
+			<div class="col-sm-3"></div>
+			<div class="col-sm-9">
+			
+			  <div class="form-group row">
 				<form:label path="employee_name" class="col-sm-2 col-form-label">Employee Name</form:label>
 				<div class="col-sm-3">
 					<form:input path="employee_name"
 						class="form-control form-control-sm" />
-
 				</div>
-			</div>
-
+			  </div>
+			
 			<%
 				String pass = request.getParameter("id");
 					if (pass == null) {
@@ -40,12 +45,9 @@
 			<div class="form-group row">
 				<form:label path="password" class="col-sm-2 col-form-label">Password ( <span
 						class="star">*</span> )</form:label>
-
-				<div class="col-sm-2">
-
-					<form:password showPassword="true" path="password"
+			<div class="col-sm-2">					<form:password showPassword="true" path="password"
 						class="form-control form-control-sm" id="enablepassword"></form:password>
-				</div>
+			</div>
 			</div>
 			<%
 				} else {
@@ -60,38 +62,30 @@
 				<div class="edit">
 					<a id="editlink" onclick="enable()">Edit</a>
 
-				</div>
 
+
+				</div>
 			</div>
 			<%
 				}
 			%>
 
-
 			<div class="form-group row">
-				<form:label type="date" path="date_of_birth"
-					class="col-sm-2 col-form-label">Date of Birth</form:label>
-
-				<div class="col-sm-2">
-					<form:input path="date_of_birth"
-						class="form-control form-control-sm" id="DOB" />
-				</div>
+				<form:label type="date" path="date_of_birth" class="col-sm-2 col-form-label">Date of Birth</form:label>	<div class="col-sm-2">
+				<form:input path="date_of_birth" class="form-control form-control-sm" id="DOB" />
+			</div>
 			</div>
 			<div class="form-group row">
-
 				<form:label path="age" class="col-sm-2 col-form-label">Age</form:label>
-
 				<div class="col-sm-2">
 					<form:input path="age" class="form-control form-control-sm"
 						id="age" readonly="true" />
-
 				</div>
-
 			</div>
 
 			<div class="row">
 				<form:label path="gender" class="col-form-label col-sm-2">Gender</form:label>
-				<div class="col-sm-10">
+				<div class="col-sm-9">
 
 					<form:radiobutton path="gender" value="male" />
 					Male &nbsp;&nbsp;
@@ -99,20 +93,14 @@
 					Female &nbsp;&nbsp;
 					<form:radiobutton path="gender" value="custom" />
 					Custom &nbsp;&nbsp;
-
 				</div>
-
 			</div>
 
 			<div class="form-group row">
-
 				<form:label path="note" class="col-sm-2 col-form-label">Note</form:label>
 				<div class="col-sm-4" id="box">
 					<form:textarea path="note" class="form-group row" rows="4"
 						cols="30" />
-
-
-
 				</div>
 			</div>
 
@@ -128,10 +116,7 @@
 					%>
 
 					<input type="button" onclick="" value="Clear" id="button">
-
-
-
-					<%
+				<%
 						}
 					%>
 
@@ -139,8 +124,7 @@
 						onclick="location.href='/Springteam2Project/searchEmployee'"
 						value="Back" id="button">
 				</div>
-
-
+				</div>
 			</div>
 		</div>
 	</form:form>
@@ -154,7 +138,6 @@
 <script>
 	$(document).ready(
 			function() {
-
 				$('#DOB')
 						.datepicker(
 								{

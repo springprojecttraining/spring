@@ -51,11 +51,7 @@ public class EmployeeInsertServiceImpl implements EmployeeInsertService {
 		return employeeDAO.getEmployeeBy(employee_id);
 	}
 
-//	@Transactional
-//	public void deleteEmployee(int parseInt) {
-//		// TODO Auto-generated method stub
-//		return;
-//	}
+	
 
 	@Transactional
 	public void delEmployee(int empId) {

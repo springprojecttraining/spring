@@ -22,33 +22,30 @@
 	<br>
 	<a href="searchEmployee">Employee Search</a>
 	</div>
-	<form:form action="timesave" method="post"
-		modelAttribute="menu">
 	<div id="content" style="">
 		<div class="row">
 			<div class="col-md-4" style="">
-			Employee Name :
-			<div class="row">
+			Employee Name : ${employee.employee_name}
 			
+			<div class="row">
+			<form:form action="in" method="POST"
+			modelAttribute="intime">
 				<div class="col-sm-6">
 					IN<br>
-					
-					
+					<input type="text" name="" value="HH :" disabled="true">
 				</div>
+				</form:form>
 				<div class="col-sm-6">
 					OUT<br>
-					
-					
+					<input type="text" name="" value="HH :"disabled="true">
 				</div>
 			</div>
 			</div>
-			
 			<div class="col-md-4" style="">
 				Reason<br>
 				<div style="width: 100%;overflow: hidden;">
 					
 					<textarea style="width: 100%;"> 
-						
 					</textarea>
 
 				</div>
@@ -76,11 +73,18 @@
 					<th>Out Remark</th>
 					<th>Action</th>
 				</tr>
-				
+				<tr>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
 			</table>
 		</div>
 	</div>
-	</form:form>
 <script src="<c:url value="/webjars/jquery/3.4.1/jquery.min.js" />"></script>
 	<script src="<c:url value="/webjars/bootstrap/4.3.1/js/bootstrap.min.js" />"></script>
 </body>

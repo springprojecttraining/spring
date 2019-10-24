@@ -18,9 +18,13 @@ public interface EmployeeInsertService {
 
 	public Employee getEmployeeBy(String employee_id);
 
-	//public void deleteEmployee(int parseInt);
+//	public void deleteEmployee(int parseInt);
 
 	public void delEmployee(int empId);
+
+	//public void deleteEmployee(int parseInt);
+
+//	public void deleteEmployee(int parseInt);
 
 //	public boolean checkEmpLogin(String employee_id, String password);
 
