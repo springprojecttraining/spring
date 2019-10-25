@@ -8,12 +8,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cmm.employee.entity.Employee;
 import com.cmm.employee.services.EmployeeInsertService;
+import com.cmm.employee.controller.HibernateSession;
 
 @Controller
 public class EmployeeInsertController {
@@ -39,12 +42,22 @@ public class EmployeeInsertController {
 
 	// employee Login successful
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String doLogin(@Valid @ModelAttribute("emplogin") Employee user, BindingResult result) {
-		if (result.hasErrors()) {
+	public String doLogin(@ModelAttribute("emplogin") Employee employee, Model model, HttpServletRequest req) {
+		Employee theemployee = employeeInsertService.getEmpAuth(employee.getEmployee_id());
+		System.out.println("asdf" + theemployee.getId());
+		System.out.println("pwd" + employee.getPassword());
+		HttpSession session = req.getSession();
+		session.setAttribute("auth", theemployee);
+		Employee authemp = (Employee) session.getAttribute("auth");
+		if (theemployee.getPassword().equals(employee.getPassword())) {
+
+			return "MNU0001";
+		} else {
+			Employee emp = new Employee();
+			model.addAttribute("emplogin", emp);
 			return "LOG0001";
 		}
 
-		return "MNU0001";
 	}
 
 	// menu form for all employees
@@ -172,4 +185,13 @@ public class EmployeeInsertController {
 		return "EMP0002";
 
 	}
+
+//	
+	@GetMapping("/logout")
+	public String logout(HttpSession session ) {
+	    session.invalidate();
+	    return "redirect:/login";
+	} 
+
+
 }

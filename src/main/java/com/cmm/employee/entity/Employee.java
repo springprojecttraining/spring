@@ -25,8 +25,8 @@ public class Employee {
 
 	@OneToMany(mappedBy = "employee")
 	private Set<EmployeeAttendance> employeeAttendance;
-	@NotEmpty
-	@Size(min = 7, max = 10, message = "Please correct your EmployeeId")
+//	@NotEmpty
+//	@Size(min = 7, max = 10, message = "Please correct your EmployeeId")
 	@Column(name = "employee_id", nullable = false)
 	public String employee_id;
 
@@ -48,22 +48,12 @@ public class Employee {
 	@Column(name = "del_flg")
 	public int del_flg;
 
-	@Size(min = 6, max = 10, message = "Your password must between 6 and 10 characters.")
+//	@Size(min = 6, max = 10, message = "Your password must between 6 and 10 characters.")
 	@Column(name = "password")
 	public String password;
 
 	@Column(name = "created_date")
 	public String created_date;
-
-//	@Column(name = "created_date", columnDefinition = "TIMESTAMP")
-//	@Temporal(TemporalType.TIMESTAMP)
-//	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-//	private Date created_date;
-
-//	@Column(name = "updated_date", columnDefinition = "TIMESTAMP")
-//	@Temporal(TemporalType.TIMESTAMP)
-//	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-//	private Date updated_date;
 
 	@Column(name = "updated_date")
 	public String updated_date;

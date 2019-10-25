@@ -61,6 +61,12 @@ public class EmployeeInsertServiceImpl implements EmployeeInsertService {
 		
 	}
 
+	@Transactional
+	public Employee getEmpAuth(String employee_id) {
+		// TODO Auto-generated method stub
+		return employeeDAO.getEmpAuth(employee_id);
+	}
+
 	
 
 }

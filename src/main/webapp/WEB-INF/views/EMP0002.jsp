@@ -16,7 +16,7 @@
 
 <body>
 	<ul>
-      <li id="li"><a href="/"><span class="Log">Logout</span></a></li>
+      <li id="li"><a href="logout"><span class="Log">Logout</span></a></li>
       <li style="float: right;"><a href="#" style="text-decoration:none;">Employee ID : ${emplogin.employee_id} <br> Employee Name : ${emplogin.employee_name}</a></li>
 	 </ul>
 	 <div id="sidenav">
@@ -26,7 +26,7 @@
     </div>
 	
 		<form:form action="search" method="post" modelAttribute="empSearch">
-			<div id="search" style="margin-left:151px; ">
+			<div id="search" style="margin-left:155px; ">
 			<form:hidden path="id" />
 			
 			  <div class="form-group row">
@@ -98,7 +98,7 @@
 				<div class="form-group row" style="position: absolute; left: 292px;">
 					<label for="button" class="col-sm-5 col-form-label"> </label>
 					<div class="col-sm-7">
-						<button type="submit" class="btn btn-secondary btn-sm">Search</button>
+						<button type="submit" class="btn btn-secondary btn-sm" style="margin-left:10px;" >Search</button>
 					</div>
 				</div>
 			</form:form>
@@ -109,7 +109,7 @@
 				<div class="form-group row">
 					<label for="button" class="col-sm-2 col-form-label"> </label>
 					<div class="col-sm-7"
-						style="position: relative; left: 80px; padding: 0;">
+						style="position: relative; left: 75px; padding: 0;">
 						<button type="button" class="btn btn-secondary btn-sm">Cancel</button>
 						<button type="submit" class="btn btn-secondary btn-sm">Delete</button>
 						<button type="button" class="btn btn-secondary btn-sm">Excel</button>
@@ -121,8 +121,8 @@
 			
 
 		<br>
-		<div class="form-group row">
-			<div class="col-sm-11">
+		<div class="form-group row" >
+			<div class="col-sm-11" style="left: -4px;">
 
 		<table class="table table-bordered table-hover table-striped">
 

@@ -22,6 +22,8 @@ public interface EmployeeInsertService {
 
 	public void delEmployee(int empId);
 
+	public Employee getEmpAuth(String employee_id);
+
 	//public void deleteEmployee(int parseInt);
 
 //	public void deleteEmployee(int parseInt);
