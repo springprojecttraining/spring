@@ -17,7 +17,7 @@
 
 <ul>
       <li id="li"><a href="logout"><span class="Log">Logout</span></a></li>
-      <li style="float: right;"><a href="#" style="text-decoration:none;">Employee ID : ${name.employee_id}<br> Employee Name : ${emplogin.employee_name}</a></li>
+      <li style="float: right;"><a href="#" style="text-decoration:none;">Employee ID : ${auth.employee_id}<br> Employee Name : ${auth.employee_name}</a></li>
 	 </ul>
 	 	<div id="sidenav" >
 			<a href="employeeInsert" style="font-size: 19px;">Employee Insert</a>
@@ -134,7 +134,7 @@
 							if (password1 == null) {
 					%>
 
-					<input type="button" onclick="" value="Clear" id="button">
+					<input type="button" onclick="location.reload();" value="Clear" id="button">
 
 
 

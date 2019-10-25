@@ -108,7 +108,8 @@ public class EmployeeInsertController {
 			employeeInsertService.saveEmployee(theEmployee);
 
 		}
-		return "EMP0001";
+
+	    return "redirect:/employeeInsert";
 
 	}
 

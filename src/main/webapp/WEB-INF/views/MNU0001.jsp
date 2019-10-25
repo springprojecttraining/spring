@@ -15,7 +15,7 @@
 	<ul>
 	
 		<li style="float:right;"><a href="logout" style="color: #00b0f0;padding-right: 20px;text-align: left;"><span style="border-bottom: 1px solid #00b0f0;">Logout</span></a></li>
-		<li style="float: right;"><a href="#" style="text-decoration:none;">Employee ID : ${emplogin.employee_id} <br> Employee Name : ${emplogin.employee_name}</a></li>
+		<li style="float: right;"><a href="#" style="text-decoration:none;">Employee ID : ${auth.employee_id} <br> Employee Name : ${auth.employee_name}</a></li>
 	</ul>
 	<div id="sidenav">
 	<a href="employeeInsert">Employee Insert</a>
