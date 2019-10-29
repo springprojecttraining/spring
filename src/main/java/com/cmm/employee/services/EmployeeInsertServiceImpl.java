@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.cmm.employee.dao.EmployeeDAO;
 import com.cmm.employee.entity.Employee;
+import com.cmm.employee.entity.EmployeeAttendance;
 
 @Service
 public class EmployeeInsertServiceImpl implements EmployeeInsertService {
@@ -65,6 +66,12 @@ public class EmployeeInsertServiceImpl implements EmployeeInsertService {
 	public Employee getEmpAuth(String employee_id) {
 		// TODO Auto-generated method stub
 		return employeeDAO.getEmpAuth(employee_id);
+	}
+
+	@Transactional
+	public void saveEmployeeAttandance(EmployeeAttendance empattandance) {
+		// TODO Auto-generated method stub
+		employeeDAO.saveEmployee(empattandance);
 	}
 
 	

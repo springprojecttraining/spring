@@ -55,6 +55,16 @@ public class Employee {
 	@Column(name = "created_date")
 	public String created_date;
 
+//	@Column(name = "created_date", columnDefinition = "TIMESTAMP")
+//	@Temporal(TemporalType.TIMESTAMP)
+//	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+//	private Date created_date;
+
+//	@Column(name = "updated_date", columnDefinition = "TIMESTAMP")
+//	@Temporal(TemporalType.TIMESTAMP)
+//	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+//	private Date updated_date;
+
 	@Column(name = "updated_date")
 	public String updated_date;
 

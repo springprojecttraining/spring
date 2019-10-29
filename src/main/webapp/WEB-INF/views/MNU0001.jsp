@@ -14,7 +14,7 @@
 <body>
 	<ul>
 	
-		<li style="float:right;"><a href="logout" style="color: #00b0f0;padding-right: 20px;text-align: left;"><span style="border-bottom: 1px solid #00b0f0;">Logout</span></a></li>
+			<li style="float:right;"><a href="logout" style="color: #00b0f0;padding-right: 20px;text-align: left;"><span style="border-bottom: 1px solid #00b0f0;">Logout</span></a></li>
 		<li style="float: right;"><a href="#" style="text-decoration:none;">Employee ID : ${auth.employee_id} <br> Employee Name : ${auth.employee_name}</a></li>
 	</ul>
 	<div id="sidenav">
@@ -28,18 +28,18 @@
 			Employee Name : ${employee.employee_name}
 			
 			<div class="row">
-			<form:form action="in" method="POST"
-			modelAttribute="intime">
+			<form:form action="in" method="POST" modelAttribute="empAtt">
 				<div class="col-sm-6">
-					IN<br>
-					<input type="text" name="" value="HH :" disabled="true">
+				<form:label path="in_time" class="col-form-label col-sm-2">In time:</form:label>
+					<br>
+					  <form:input path="in_time" class="form-control form-control-sm"/>
+					
 				</div>
 							<div class="col-sm-6">
 					OUT<br>
-					<input type="text" name="" value="HH :"disabled="true">
+					  <form:input path="out_time" class="form-control form-control-sm"/>
 				</div>
-					</form:form>
-				
+			</form:form>
 			</div>
 			</div>
 			<div class="col-md-4" style="">

@@ -3,6 +3,7 @@ package com.cmm.employee.dao;
 import java.util.List;
 
 import com.cmm.employee.entity.Employee;
+import com.cmm.employee.entity.EmployeeAttendance;
 
 public interface EmployeeDAO {
 
@@ -23,6 +24,8 @@ public interface EmployeeDAO {
 	public void delEmployee(int empId);
 
 	public Employee getEmpAuth(String employee_id);
+
+	public void saveEmployee(EmployeeAttendance empattandance);
 
 //	public void deleteEmployee(int parseInt);
 

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 
 import com.cmm.employee.entity.Employee;
-
+import com.cmm.employee.entity.EmployeeAttendance;
 
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
@@ -71,6 +71,15 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	public Employee getEmpAuth(String employee_id) {
 		return (Employee) sessionFactory.getCurrentSession().createQuery("from Employee e where e.employee_id = :id").
 				setParameter("id", employee_id).uniqueResult();
+	}
+
+	@Override
+	public void saveEmployee(EmployeeAttendance empattandance) {
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.saveOrUpdate(empattandance);
+		// TODO Auto-generated method stub
+		
 	}
 
 	
